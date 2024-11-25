@@ -19,6 +19,10 @@
     <div class="header-text">
        <h1>Welcome to Design.pro</h1>
     </div>
+    <div class="polz">
+                {% if user.is_authenticated %}
+                    <p>Здравствуйте, {{ user.get_username }}</p>
+                {% endif %}
     </div>
 </header>
 <div class="container-fluid">
