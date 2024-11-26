@@ -21,6 +21,22 @@
     </ul>
     {% endif %}
     <p>
+        Количество заявок, находящихся в статусе «Новая»:
+        {% if new_request_counter %}
+        {{ new_request_counter }}
+        {% else %}
+        0
+        {% endif %}
+    </p>
+    <p>
+        Количество заявок, находящихся в статусе «Выполнено»:
+        {% if completed_request_counter %}
+        {{ completed_request_counter }}
+        {% else %}
+        0
+        {% endif %}
+    </p>
+    <p>
         Количество заявок, находящихся в статусе «Принято в работу»:
         {% if accepted_request_counter %}
         {{ accepted_request_counter }}
@@ -28,4 +44,5 @@
         0
         {% endif %}
     </p>
+
 {% endblock %}
