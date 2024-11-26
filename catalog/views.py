@@ -42,7 +42,7 @@ def signup(request):
             user = authenticate(username=username, password=password)
             if user is not None and user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/')  # Используйте redirect вместо HttpResponseRedirect
+                return HttpResponseRedirect('/')
     else:
         form = SignUpForm()  # Создаем форму для GET-запроса
 
