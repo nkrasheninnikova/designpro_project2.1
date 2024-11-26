@@ -34,18 +34,19 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.fio = form.cleaned_data['fio']
+            user.fio = form.cleaned_data['fio']  # Предполагается, что это поле есть в форме
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user.set_password(password)
             user.save()
             user = authenticate(username=username, password=password)
             if user is not None and user.is_active:
-               login(request, user)
-               return HttpResponseRedirect('/')
-            else:
-                form = SignUpForm()
-                return render(request, 'signup.html', {'form': form})
+                login(request, user)
+                return HttpResponseRedirect('/')  # Используйте redirect вместо HttpResponseRedirect
+    else:
+        form = SignUpForm()  # Создаем форму для GET-запроса
+
+    return render(request, 'signup.html', {'form': form})  # Возвращаем форму для отображения
 
 
 
