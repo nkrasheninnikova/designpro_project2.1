@@ -1,25 +1,9 @@
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class UserProfile(AbstractUser):
-    fio = models.CharField(max_length=100, blank=False)
-
-    # Указание related_name для конфликта
-    groups = models.ManyToManyField(
-        Group,
-        related_name='userprofile_set',
-        blank=True,
-        help_text='Группы, к которым принадлежит этот пользователь. '
-        'Пользователь получит все разрешения, предоставленные для каждой из своих групп.'
-    )
-
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name='userprofile_set',
-        blank=True,
-        help_text='Особые разрешения для этого пользователя.'
-    )
+class UserProfile(User):
+    fio = models.CharField(max_length=100, default='Не указано',blank=True)
 
 
 class Category(models.Model):
