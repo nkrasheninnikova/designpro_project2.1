@@ -8,7 +8,6 @@
 
 <h3>Ваши заявки:</h3>
 {% if user_requests %}
-<form action="{% url 'profile_filter' %}" method="get" name="filter">
     <h4>Статус заявки:</h4>
     <div>
         <select name="status">

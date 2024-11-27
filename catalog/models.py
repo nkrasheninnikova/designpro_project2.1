@@ -1,9 +1,11 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.db import models
+from django import forms
 
 class UserProfile(User):
     fio = models.CharField(max_length=100,blank=True)
-
+    avatar = models.ImageField(upload_to='avatar/', blank=True, null=True)
+    agree = forms.BooleanField(label='Согласие на обработку персональных данных', widget=forms.CheckboxInput,required=True)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Категория', blank=False)
@@ -34,3 +36,7 @@ class Request(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CustomerUser(AbstractUser):
+    avatar = models.ImageField(upload_to='avatar/', blank=True, null=True)

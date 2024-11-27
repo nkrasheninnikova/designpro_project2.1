@@ -7,6 +7,11 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if user.avatar %}
+       <img src="{{user.avatar.url}} avatar">
+    {% else %}
+       <img src="{% static 'catalog/images/def-avatar' %} " alt="def-avatar">
+    {% endif %}
     <button type="submit">Зарегистрироваться</button>
   </form>
 {% endblock %}

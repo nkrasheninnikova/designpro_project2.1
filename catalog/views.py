@@ -40,5 +40,13 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})  # Возвращаем форму для отображения
 
 
-
+def register(request):
+    if request.method == 'POST':
+        form = CustomerUserForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = CustomerUserForm()
+        return render(request, 'signup.html', {'form': form})
 

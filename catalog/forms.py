@@ -20,7 +20,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = UserProfile
-        fields = ('fio', 'username', 'email', 'password1', 'password2', 'agree')
+        fields = ('fio', 'username', 'email', 'password1', 'password2','agree')
 
 
     def clean_password2(self):
@@ -35,3 +35,8 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError("Ошибка! Такой E-mail уже существует!")
         return email
 
+
+class CustomerUserForm(UserCreationForm):
+    class Meta:
+        model = UserProfile
+        fields = ('fio', 'username', 'email', 'password1', 'password2', 'avatar', 'agree')
