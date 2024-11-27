@@ -1,11 +1,8 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-from .models import *
+from django.shortcuts import render
 from .forms import *
-
-
 
 def index(request):
     done_requests = Request.objects.filter(status='В')[:4]
@@ -16,8 +13,6 @@ def index(request):
         'done_requests': done_requests, 'accepted_request_counter': accepted_request_counter,'completed_request_counter': completed_request_counter,
         'new_request_counter': new_request_counter}
     )
-
-
 
 @login_required
 def indexacc(request):
@@ -47,6 +42,7 @@ def signup(request):
         form = SignUpForm()  # Создаем форму для GET-запроса
 
     return render(request, 'signup.html', {'form': form})  # Возвращаем форму для отображения
+
 
 
 

@@ -43,11 +43,9 @@
 <ul>
     {% else %}
     <p>В данный момент у вас нет заявок</p>
-    <a href="{% url 'profile' %}" class="btn btn-primary" >Очистить фильтр</a>
     {% endif %}
     <h3>Ваши данные:</h3>
     <ul>
-        <li>ФИО:{{user.fio}}</li>
         <li>Логин:{{user.username}}</li>
         <li>Email:{{user.email}}</li>
     </ul>
