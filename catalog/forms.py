@@ -36,7 +36,3 @@ class SignUpForm(UserCreationForm):
         return email
 
 
-class CustomerUserForm(UserCreationForm):
-    class Meta:
-        model = UserProfile
-        fields = ('fio', 'username', 'email', 'password1', 'password2', 'avatar', 'agree')
