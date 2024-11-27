@@ -4,25 +4,18 @@
 
 {% block content %}
   <h2>Регистрация</h2>
-   <br>
-  <h2>Загрузите фото профиля по желанию</h2>
-    {% if user.avatar %}
-    <img src="{{user.avatar.url}} avatar" alt="{{user.username}}'s avatar">
-    {% else %}
-    <img src="static/catalog/images/def-avatar.jpg" alt="def-avatar">
-    {% endif %}
-    <button type="submit">Загрузить</button>
-   <br>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+          <h3>Загрузите фото профиля по желанию</h3>
+        {% if user.avatar %}
+        <img src="{{user.avatar.url}} avatar" alt="{{user.username}}'s avatar">
+        {% endif %}
+        <button type="submit">Загрузить</button>
+      <br>
+      <br>
+      <br>
     <button type="submit">Зарегистрироваться</button>
   </form>
-{% endblock %}
+    {% endblock %}
 
-    {% if user.avatar %}
-    <img src="{{user.avatar.url}} avatar" alt="{{user.username}}'s avatar">
-    {% else %}
-    <img src="static/catalog/images/def-avatar.jpg" alt="def-avatar">
-    {% endif %}
-    <button type="submit">Загрузить</button>

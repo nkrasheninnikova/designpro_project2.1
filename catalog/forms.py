@@ -35,4 +35,3 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError("Ошибка! Такой E-mail уже существует!")
         return email
 
-
