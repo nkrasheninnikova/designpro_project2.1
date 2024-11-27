@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class UserProfile(User):
-    fio = models.CharField(max_length=100, default='Не указано',blank=True)
+    fio = models.CharField(max_length=100,blank=True)
 
 
 class Category(models.Model):
